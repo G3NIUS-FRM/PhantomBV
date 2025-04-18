@@ -1,0 +1,14 @@
+{
+    "builds":[
+      {
+        "src": "phantomBV/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes":[
+      {
+        "src":"/(.*)",
+        "dest":"phantomBV/wsgi.py"
+      }
+    ]
+  }
