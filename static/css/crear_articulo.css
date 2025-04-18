@@ -1,0 +1,91 @@
+/* Contenedor general */
+.div-form {
+    background-color: white;
+    border: 1px solid var(--verde-claro);
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Encabezado del formulario */
+.button-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 10px;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.button-title h2 {
+    font-size: 26px;
+    color: var(--verde-principal);
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para el formulario y sus campos */
+.div-form form p {
+    margin-bottom: 20px;
+}
+
+.div-form label {
+    font-weight: 500;
+    color: var(--texto-oscuro);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.div-form input,
+.div-form textarea,
+.div-form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--verde-claro);
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.div-form input:focus,
+.div-form textarea:focus,
+.div-form select:focus {
+    border-color: var(--verde-principal);
+    outline: none;
+    box-shadow: 0 0 5px rgba(46, 139, 87, 0.2);
+}
+
+/* Botón de enviar */
+.div-form button[type="submit"] {
+    background-color: var(--verde-principal);
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.div-form button[type="submit"]:hover {
+    background-color: var(--verde-oscuro);
+    transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .div-form {
+        padding: 20px;
+    }
+
+    .button-title h2 {
+        font-size: 22px;
+    }
+}

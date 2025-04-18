@@ -1,0 +1,404 @@
+/* Estilos adicionales para el login */
+/* Paleta de colores verde - igual que en registro.css */
+:root {
+    --verde-principal: #2E8B57; /* Verde mar */
+    --verde-claro: #8FBC8F;    /* Verde claro */
+    --verde-oscuro: #1D5837;   /* Verde oscuro */
+    --crema: #F5F5DC;          /* Crema para fondo */
+    --texto-oscuro: #333333;   /* Casi negro para texto */
+    --error: #D9534F;          /* Color para errores */
+    --exito: #5CB85C;          /* Verde éxito */
+    --sombra: rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: var(--crema);
+    color: var(--texto-oscuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: radial-gradient(var(--verde-claro) 0.5px, transparent 0.5px), radial-gradient(var(--verde-claro) 0.5px, var(--crema) 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+  
+  .container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 28px var(--sombra);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+  }
+  
+  .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--verde-claro), var(--verde-principal), var(--verde-oscuro));
+  }
+  
+  h2 {
+    color: var(--verde-oscuro);
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--verde-principal);
+    border-radius: 3px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  form p {
+    margin: 0;
+    position: relative;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--verde-oscuro);
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  input {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+    background-color: white;
+  }
+  
+  button {
+    background: linear-gradient(45deg, var(--verde-principal), var(--verde-oscuro));
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(46, 139, 87, 0.2);
+  }
+  
+  button:hover {
+    background: linear-gradient(45deg, var(--verde-oscuro), var(--verde-principal));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(46, 139, 87, 0.3);
+  }
+  
+  button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(46, 139, 87, 0.2);
+  }
+  
+  /* Estilos para mensajes de error */
+  .errorlist {
+    list-style: none;
+    color: var(--error);
+    font-size: 14px;
+    margin-top: 8px;
+    padding-left: 0;
+    font-weight: 500;
+  }
+  
+  /* Animación de entrada */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .container {
+    animation: fadeIn 0.7s ease-out;
+  }
+  
+  /* Campo de contraseña con icono */
+  .password-field {
+    position: relative;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 43px;
+    cursor: pointer;
+    color: var(--verde-principal);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .toggle-password:hover {
+    opacity: 1;
+  }
+  
+  /* Enlace para registro */
+  .register-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--texto-oscuro);
+  }
+  
+  .register-link a {
+    color: var(--verde-principal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .register-link a:hover {
+    color: var(--verde-oscuro);
+    text-decoration: underline;
+  }
+  
+  /* Separador decorativo */
+  .separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 10px 0;
+    color: #999;
+  }
+  
+  .separator::before,
+  .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .separator:not(:empty)::before {
+    margin-right: .25em;
+  }
+  
+  .separator:not(:empty)::after {
+    margin-left: .25em;
+  }
+  
+  /* Mensaje de error general */
+  .error-message {
+    background-color: rgba(217, 83, 79, 0.1);
+    border-left: 4px solid var(--error);
+    padding: 12px;
+    margin-bottom: 20px;
+    color: var(--error);
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  /* Animación para mostrar errores */
+  .errorlist {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+      transform: translate3d(-3px, 0, 0);
+    }
+    40%, 60% {
+      transform: translate3d(3px, 0, 0);
+    }
+  }
+  
+  /* Estilo para los iconos en los campos */
+  .input-icon {
+    position: relative;
+  }
+  
+  .input-icon input {
+    padding-left: 40px;
+  }
+  
+  .input-icon i {
+    position: absolute;
+    left: 14px;
+    top: 48px;
+    color: var(--verde-principal);
+    opacity: 0.8;
+  }
+  
+  /* Diseño responsive */
+  @media (max-width: 480px) {
+    .container {
+      padding: 30px 20px;
+    }
+    
+    button {
+      padding: 14px;
+    }
+    
+    h2 {
+      font-size: 26px;
+    }
+  }
+  
+  /* Clases para recordar sesión */
+  .remember-me {
+    display: flex;
+    align-items: center;
+    margin-top: -15px;
+  }
+  
+  .remember-me input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+  }
+  
+  .remember-me label {
+    margin-bottom: 0;
+    font-size: 14px;
+    cursor: pointer;
+  }
+/* Enlace para olvidar contraseña */
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .forgot-password a {
+    color: #777;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .forgot-password a:hover {
+    color: var(--verde-principal);
+    text-decoration: underline;
+  }
+  
+  /* Efecto de brillo en el botón */
+  @keyframes shine {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  button:hover {
+    animation: shine 3s ease infinite;
+    background-size: 200% auto;
+    background-image: linear-gradient(45deg, var(--verde-principal), var(--verde-oscuro), var(--verde-principal));
+  }
+  
+  /* Mejoras para los iconos */
+  .input-icon i {
+    transition: transform 0.3s ease;
+  }
+  
+  .input-icon input:focus + i,
+  .input-icon input:focus ~ i {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  
+  /* Estilo para hacer foco en el contenedor completo */
+  .container:focus-within {
+    box-shadow: 0 14px 30px rgba(46, 139, 87, 0.15);
+  }
+  
+  /* Añade un pequeño rebote al cargar la página */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .container {
+    animation: fadeIn 0.7s ease-out, bounce 1s ease 0.7s;
+  }
+/* Estilo para el enlace */
+a {
+    color: var(--verde-principal);  /* Color base del enlace */
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;  /* Elimina el subrayado por defecto */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+    color: var(--verde-oscuro);  /* Cambia el color en hover */
+    text-decoration: underline;  /* Subraya el enlace en hover */
+    transform: translateY(-2px);  /* Da un pequeño efecto de desplazamiento */
+}
+
+a:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.3);  /* Resalta el enlace al recibir foco */
+}

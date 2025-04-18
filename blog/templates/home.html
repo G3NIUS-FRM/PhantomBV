@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+{% block content %}
+
+
+<header>
+    <h1>PhantomBV</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="">Profile</a></li>
+            <li><a href="">About</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'login' %}">logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">login</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle">☰</button>
+</header>
+<section class="main">
+    <div class="buttons">
+        {% if user.is_authenticated %}
+        <a href="{% url 'crear_articulo' %}" >Crear un articulo</a>
+        {% else %}
+        <a href="{% url 'login' %}">Crear un articulo</a>
+        {% endif %}
+    </div>
+    {% for arti in articulos %}
+    <h2>{{arti.title}}</h2>
+    <p>{{arti.description}}</p>
+    <span>{{arti.autor}}</span>
+    {% if user.is_authenticated and user == arti.autor %}
+    <form action="{% url 'eliminar_articulo'%}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="elim" value="{{arti.id}}">
+        <button type="submit">Eliminar</button>
+    </form>
+    {% else %}
+    <span>{{arti.creation_date}}</span>
+    
+    {% endif %}
+    {% endfor %}
+</section>
+
+
+{% endblock %}

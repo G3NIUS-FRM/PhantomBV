@@ -1,0 +1,343 @@
+/* Paleta de colores verde */
+:root {
+    --verde-principal: #2E8B57; /* Verde mar */
+    --verde-claro: #8FBC8F;    /* Verde claro */
+    --verde-oscuro: #1D5837;   /* Verde oscuro */
+    --crema: #F5F5DC;          /* Crema para fondo */
+    --texto-oscuro: #333333;   /* Casi negro para texto */
+  }
+  
+  * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      box-sizing: border-box;
+  }
+  
+  body {
+      height: 100vh;
+      width: 100%;
+      background-color: var(--crema);
+  }
+  
+  header {
+      display: flex;
+      align-items: center;
+      background-color: var(--verde-oscuro);
+      justify-content: space-between;
+      width: 100%;
+      height: 10vh;
+      padding: 0 20px;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  h1 {
+      font-size: 30px;
+      font-weight: 600;
+      color: white;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  nav ul {
+      display: flex;
+      gap: 30px;
+  }
+  
+  li {
+      font-size: 18px;
+      list-style-type: none;
+  }
+  
+  li a {
+      text-decoration: none;
+      color: var(--verde-claro);
+      transition: color 0.3s ease-in-out;
+      display: inline-block;
+      padding-bottom: 5px;
+      position: relative;
+      font-weight: 500;
+  }
+  
+  li a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease-in-out;
+  }
+  
+  li a:hover {
+      color: white;
+  }
+  
+  li a:hover::after {
+      width: 100%;
+  }
+  
+  /* Efecto de resaltado para la página activa */
+  li a.active {
+      color: white;
+      font-weight: 600;
+  }
+  
+  li a.active::after {
+      width: 100%;
+      background-color: var(--verde-claro);
+      height: 3px;
+  }
+  
+  /* Botón hamburguesa */
+  .nav-toggle {
+      display: none;
+      font-size: 26px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+      transition: transform 0.3s ease;
+  }
+  
+  .nav-toggle:hover {
+      transform: scale(1.1);
+  }
+  
+  /* Logo y título combinados */
+  .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+  
+  .logo {
+      height: 40px;
+      width: 40px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde-oscuro);
+      font-weight: bold;
+      font-size: 20px;
+  }
+  
+  /* Efecto de gradiente en el header */
+  header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--verde-claro), var(--verde-principal), var(--verde-oscuro));
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+      nav {
+          display: none;
+          position: absolute;
+          top: 10vh;
+          right: 0;
+          background-color: var(--verde-oscuro);
+          width: 200px;
+          padding: 15px;
+          z-index: 1000;
+          border-bottom-left-radius: 8px;
+          box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.2);
+      }
+  
+      nav.open {
+          display: block;
+          animation: slideIn 0.3s ease-out forwards;
+      }
+  
+      @keyframes slideIn {
+          from {
+              opacity: 0;
+              transform: translateX(20px);
+          }
+          to {
+              opacity: 1;
+              transform: translateX(0);
+          }
+      }
+  
+      nav ul {
+          flex-direction: column;
+          gap: 15px;
+      }
+  
+      li a {
+          display: block;
+          padding: 8px 5px;
+      }
+  
+      li a::after {
+          bottom: 5px;
+      }
+  
+      .nav-toggle {
+          display: block;
+      }
+  }
+  
+  /* Efecto de transición entre páginas */
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  
+  main {
+      animation: fadeIn 0.5s ease-out;
+  }
+  section.main {
+    padding: 40px 20px;
+    background-color: var(--crema);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Título del artículo */
+section.main h2 {
+    font-size: 28px;
+    color: var(--verde-principal);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Descripción del artículo */
+section.main p {
+    font-size: 18px;
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+}
+
+/* Autor del artículo */
+section.main span {
+    font-size: 16px;
+    color: var(--verde-oscuro);
+    font-style: italic;
+    align-self: flex-end;
+}
+.buttons a {
+    color: var(--verde-principal);  /* Color base del enlace */
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;  /* Elimina el subrayado por defecto */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.buttons a:hover {
+    color: var(--verde-oscuro);  /* Cambia el color en hover */
+    text-decoration: underline;  /* Subraya el enlace en hover */
+    transform: translateY(-2px);  /* Da un pequeño efecto de desplazamiento */
+}
+
+.buttons a:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.3);  /* Resalta el enlace al recibir foco */
+}
+/* Contenedor general */
+.div-form {
+    background-color: white;
+    border: 1px solid var(--verde-claro);
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Encabezado del formulario */
+.button-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 10px;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.button-title h2 {
+    font-size: 26px;
+    color: var(--verde-principal);
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para el formulario y sus campos */
+.div-form form p {
+    margin-bottom: 20px;
+}
+
+.div-form label {
+    font-weight: 500;
+    color: var(--texto-oscuro);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.div-form input,
+.div-form textarea,
+.div-form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--verde-claro);
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.div-form input:focus,
+.div-form textarea:focus,
+.div-form select:focus {
+    border-color: var(--verde-principal);
+    outline: none;
+    box-shadow: 0 0 5px rgba(46, 139, 87, 0.2);
+}
+
+/* Botón de enviar */
+.div-form button[type="submit"] {
+    background-color: var(--verde-principal);
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.div-form button[type="submit"]:hover {
+    background-color: var(--verde-oscuro);
+    transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .div-form {
+        padding: 20px;
+    }
+
+    .button-title h2 {
+        font-size: 22px;
+    }
+}
+
