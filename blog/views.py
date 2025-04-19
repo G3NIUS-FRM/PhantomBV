@@ -5,7 +5,7 @@ from .forms import CrearArticulo
 # Create your views here.
 def home(request):
 
-    articulos=Articles.objects.all()
+    articulos=Articles.objects.all().order_by('-creation_date')[:10]
     
     
     return render(request, "home.html", {"user":request.user , "articulos":articulos})
